@@ -52,6 +52,39 @@
 
         body.lang-en .es { display: none; }
         body.lang-es .en { display: none; }
+
+        /* Menu / Pricing */
+        .menu-img { width: 100%; border-radius: 8px; margin: 1rem 0 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+
+        .pricing-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+        .pricing-table th, .pricing-table td { border: 1px solid #ccc; padding: 8px 10px; text-align: center; }
+        .pricing-table thead th { background: #1a1a2e; color: white; }
+        .pricing-table .pkg-name { text-align: left; font-weight: bold; background: #2c3e6b; color: white; }
+        .pricing-table .pkg-includes { font-size: 0.78rem; font-weight: normal; color: #dce3f0; }
+        .pricing-table tbody tr:nth-child(odd) td:not(.pkg-name) { background: #f4f7ff; }
+        .pricing-table tbody tr:nth-child(even) td:not(.pkg-name) { background: #e8edfa; }
+        .pricing-table .price { color: #c0392b; font-weight: bold; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+        .service-item { background: #f4f7ff; border: 1px solid #cce; border-radius: 6px; padding: 0.6rem 0.8rem; }
+        .service-item .svc-name { font-weight: bold; font-size: 0.9rem; color: #2c3e6b; }
+        .service-item .svc-price { color: #c0392b; font-weight: bold; }
+
+        .zone-section { background: #1a1a2e; color: white; border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; }
+        .zone-section h3 { color: #7ec8e3; margin-top: 0; }
+        .zone-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+        .zone-tag { background: #2c3e6b; border-radius: 4px; padding: 4px 10px; font-size: 0.85rem; }
+
+        .rv-section { background: #e05c00; color: white; border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+        .rv-section h3 { color: white; margin: 0; flex: 0 0 100%; }
+        .rv-item { background: rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 16px; font-weight: bold; }
+
+        .price-note { font-size: 0.8rem; color: #666; font-style: italic; margin-top: 0.5rem; }
+
+        @media (max-width: 600px) {
+            .pricing-table { font-size: 0.75rem; }
+            .pricing-table th, .pricing-table td { padding: 5px 4px; }
+        }
     </style>
 </head>
 <body class="lang-en">
@@ -109,40 +142,139 @@
     </section>
 
     <section id="services">
-        <h2 class="en">Our Services</h2>
-        <h2 class="es">Nuestros Servicios</h2>
-        <ul>
-            <li>
-                <strong class="en">Basic Car Wash:</strong><strong class="es">Lavado Básico:</strong>
-                <span class="en">Includes interior and exterior. Optional free shine for exterior and interior. A complete exterior hand wash and thorough interior vacuuming, finished with a protective shine for the dash and tires.</span>
-                <span class="es">Incluye interior y exterior. Brillo gratis opcional para exterior e interior. Un lavado a mano exterior completo y aspirado interior profundo, terminado con un brillo protector para el tablero y las llantas.</span>
-            </li>
-            <li>
-                <strong class="en">Chassis Wash:</strong><strong class="es">Lavado de Chasis:</strong>
-                <span class="en">High-pressure undercarriage cleaning to safely remove heavy dirt, mud, and road grime buildup.</span>
-                <span class="es">Limpieza de chasis a alta presión para eliminar de forma segura la acumulación de tierra pesada, lodo y suciedad del camino.</span>
-            </li>
-            <li>
-                <strong class="en">Motor Wash:</strong><strong class="es">Lavado de Motor:</strong>
-                <span class="en">Careful degreasing and cleaning of the engine bay to remove oil and debris.</span>
-                <span class="es">Desengrase y limpieza cuidadosa del compartimiento del motor para eliminar aceite y escombros.</span>
-            </li>
-            <li>
-                <strong class="en">Wax:</strong><strong class="es">Cera:</strong>
-                <span class="en">Premium hand-applied wax for a deep gloss and long-lasting paint protection against the elements.</span>
-                <span class="es">Cera premium aplicada a mano para un brillo profundo y protección duradera de la pintura contra los elementos.</span>
-            </li>
-            <li>
-                <strong class="en">Polish:</strong><strong class="es">Polish:</strong>
-                <span class="en">Professional machine polishing to remove minor scratches, swirl marks, and restore the clear coat's original shine.</span>
-                <span class="es">Polish profesional para eliminar rayones menores, marcas de remolino y restaurar el brillo original del barniz.</span>
-            </li>
-            <li>
-                <strong class="en">Deep Cleaning:</strong><strong class="es">Limpieza Profunda:</strong>
-                <span class="en">Wash seatbelts, seats, ceilings, trunk, and baby car seats. Intensive shampoo extraction and stain removal for all interior fabrics and upholstery.</span>
-                <span class="es">Lavado de cinturones de seguridad, asientos, techos, cajuela y asientos para bebés. Extracción intensiva con champú y eliminación de manchas para todas las telas de tapicería e interior.</span>
-            </li>
-        </ul>
+        <h2 class="en">Services &amp; Pricing</h2>
+        <h2 class="es">Servicios y Precios</h2>
+
+        <!-- Menu image -->
+        <img src="menu.png" alt="Lavamex menu de precios" class="menu-img">
+
+        <!-- Packages table -->
+        <h3 class="en">Wash Packages</h3>
+        <h3 class="es">Paquetes de Lavado</h3>
+
+        <div style="overflow-x:auto;">
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th style="text-align:left;" class="en">Package</th>
+                    <th style="text-align:left;" class="es">Paquete</th>
+                    <th>Auto</th>
+                    <th>SUV Chica</th>
+                    <th>Pick-Up / SUV MD</th>
+                    <th>SUV GDE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="pkg-name en">Lavado General<br><span class="pkg-includes">Exterior · Interior Clean · Shine</span></td>
+                    <td class="pkg-name es">Lavado General<br><span class="pkg-includes">Exterior · Limpieza Interior · Brillo</span></td>
+                    <td class="price">$200</td>
+                    <td class="price">$240</td>
+                    <td class="price">$360</td>
+                    <td class="price">$360</td>
+                </tr>
+                <tr>
+                    <td class="pkg-name en">Lavado + Cera<br><span class="pkg-includes">General Wash + Wax</span></td>
+                    <td class="pkg-name es">Lavado + Cera<br><span class="pkg-includes">Lavado General + Cera</span></td>
+                    <td class="price">$540</td>
+                    <td class="price">$640</td>
+                    <td class="price">$820</td>
+                    <td class="price">$820</td>
+                </tr>
+                <tr>
+                    <td class="pkg-name en">Paquete Completo<br><span class="pkg-includes">General Wash + Carpets + Seats</span></td>
+                    <td class="pkg-name es">Paquete Completo<br><span class="pkg-includes">Lavado General + Alfombras + Asientos</span></td>
+                    <td class="price">$840</td>
+                    <td class="price">$1,040</td>
+                    <td class="price">$1,160</td>
+                    <td class="price">$1,640</td>
+                </tr>
+                <tr>
+                    <td class="pkg-name en">Paquete Premium<br><span class="pkg-includes">General Wash + Carpets + Seats + Wax</span></td>
+                    <td class="pkg-name es">Paquete Premium<br><span class="pkg-includes">Lavado General + Alfombras + Asientos + Cera</span></td>
+                    <td class="price">$1,180</td>
+                    <td class="price">$1,440</td>
+                    <td class="price">$1,620</td>
+                    <td class="price">$2,100</td>
+                </tr>
+                <tr>
+                    <td class="pkg-name en">Paquete Presidencial<br><span class="pkg-includes">General Wash + Wax + Polish</span></td>
+                    <td class="pkg-name es">Paquete Presidencial<br><span class="pkg-includes">Lavado General + Cera + Polish</span></td>
+                    <td class="price">$1,540</td>
+                    <td class="price">$1,940</td>
+                    <td class="price">$2,320</td>
+                    <td class="price">$2,320</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <!-- Individual services -->
+        <h3 class="en">Individual Services</h3>
+        <h3 class="es">Servicios Individuales</h3>
+        <div class="services-grid">
+            <div class="service-item">
+                <div class="svc-name en">Motor Wash</div>
+                <div class="svc-name es">Lavado de Motor</div>
+                <div class="svc-price">$400</div>
+            </div>
+            <div class="service-item">
+                <div class="svc-name en">Chassis Wash</div>
+                <div class="svc-name es">Lavado de Chasis</div>
+                <div class="svc-price">$400</div>
+            </div>
+            <div class="service-item">
+                <div class="svc-name en">Headlight Cleaning</div>
+                <div class="svc-name es">Limpieza de Focos</div>
+                <div class="svc-price">$340</div>
+            </div>
+            <div class="service-item">
+                <div class="svc-name en">Shoe Shine</div>
+                <div class="svc-name es">Boleada</div>
+                <div class="svc-price">$60</div>
+            </div>
+            <div class="service-item">
+                <div class="svc-name en">Extra Shine</div>
+                <div class="svc-name es">Brillo Extra</div>
+                <div class="svc-price">$40</div>
+            </div>
+            <div class="service-item">
+                <div class="svc-name en">Trunk Vacuum</div>
+                <div class="svc-name es">Aspirado Cajuela</div>
+                <div class="svc-price">$40</div>
+            </div>
+            <div class="service-item">
+                <div class="svc-name en">Air Freshener</div>
+                <div class="svc-name es">Aroma</div>
+                <div class="svc-price">$20</div>
+            </div>
+        </div>
+
+        <!-- Zone cleaning -->
+        <div class="zone-section">
+            <h3 class="en">Zone Cleaning — $200 each</h3>
+            <h3 class="es">Limpieza por Zona — $200 c/u</h3>
+            <div class="zone-tags">
+                <span class="zone-tag en">Seat Belts</span><span class="zone-tag es">Cinturones</span>
+                <span class="zone-tag en">Trunk</span><span class="zone-tag es">Cajuela</span>
+                <span class="zone-tag en">Ceiling</span><span class="zone-tag es">Cielo</span>
+                <span class="zone-tag en">Plastics</span><span class="zone-tag es">Plásticos</span>
+                <span class="zone-tag en">Baby Seat</span><span class="zone-tag es">Silla de Bebé</span>
+            </div>
+        </div>
+
+        <!-- Recreational vehicles -->
+        <div class="rv-section">
+            <h3 class="en">Recreational Vehicles</h3>
+            <h3 class="es">Vehículos Recreativos</h3>
+            <div class="rv-item en">Razor Small: $640</div>
+            <div class="rv-item es">Razer Chico: $640</div>
+            <div class="rv-item en">Razor Large: $500</div>
+            <div class="rv-item es">Razer Grande: $500</div>
+        </div>
+
+        <p class="price-note en">* Prices do not include VAT. Prices may vary depending on the vehicle.</p>
+        <p class="price-note es">* Precios no incluyen IVA. Los precios pueden variar según el vehículo.</p>
     </section>
 
     <section id="important-info">
