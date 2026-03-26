@@ -33,10 +33,10 @@
         body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; }
         .lang-toggle { background: #eee; padding: 10px; text-align: right; }
         .lang-toggle button { margin-left: 10px; padding: 5px 15px; cursor: pointer; }
-        header { background: #0056b3; color: white; padding: 2rem 1rem; text-align: center; }
+        header { background: #e46f27; color: white; padding: 2rem 1rem; text-align: center; }
         main { padding: 2rem 1rem; max-width: 800px; margin: auto; }
         section { margin-bottom: 2rem; }
-        h1, h2, h3 { color: #0056b3; }
+        h1, h2, h3 { color: #e46f27; }
         header h1 { color: white; margin: 0; }
         ul { margin-top: 0; }
         li { margin-bottom: 1rem; }
@@ -52,9 +52,20 @@
 
         body.lang-en .es { display: none; }
         body.lang-es .en { display: none; }
+
+        /* Menu image — full viewport width, breaks out of max-width container */
+        .menu-img-wrapper { width: 100vw; position: relative; left: 50%; transform: translateX(-50%); margin: 1rem 0 1.5rem; }
+        .menu-img-wrapper img { width: 100%; display: block; }
+
+        /* Individual services */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+        .service-item { background: #f4f7ff; border: 1px solid #cce; border-radius: 6px; padding: 0.75rem 0.9rem; }
+        .service-item .svc-name { font-weight: bold; font-size: 0.95rem; color: #2c3e6b; }
+        .service-item .svc-price { color: #c0392b; font-weight: bold; margin: 2px 0 6px; }
+        .service-item .svc-desc { font-size: 0.82rem; color: #555; line-height: 1.4; }
     </style>
 </head>
-<body class="lang-en">
+<body class="lang-es">
 
 <div class="lang-toggle">
     <button onclick="document.body.className='lang-en'">English</button>
@@ -109,40 +120,55 @@
     </section>
 
     <section id="services">
-        <h2 class="en">Our Services</h2>
-        <h2 class="es">Nuestros Servicios</h2>
-        <ul>
-            <li>
-                <strong class="en">Basic Car Wash:</strong><strong class="es">Lavado Básico:</strong>
-                <span class="en">Includes interior and exterior. Optional free shine for exterior and interior. A complete exterior hand wash and thorough interior vacuuming, finished with a protective shine for the dash and tires.</span>
-                <span class="es">Incluye interior y exterior. Brillo gratis opcional para exterior e interior. Un lavado a mano exterior completo y aspirado interior profundo, terminado con un brillo protector para el tablero y las llantas.</span>
-            </li>
-            <li>
-                <strong class="en">Chassis Wash:</strong><strong class="es">Lavado de Chasis:</strong>
-                <span class="en">High-pressure undercarriage cleaning to safely remove heavy dirt, mud, and road grime buildup.</span>
-                <span class="es">Limpieza de chasis a alta presión para eliminar de forma segura la acumulación de tierra pesada, lodo y suciedad del camino.</span>
-            </li>
-            <li>
-                <strong class="en">Motor Wash:</strong><strong class="es">Lavado de Motor:</strong>
-                <span class="en">Careful degreasing and cleaning of the engine bay to remove oil and debris.</span>
-                <span class="es">Desengrase y limpieza cuidadosa del compartimiento del motor para eliminar aceite y escombros.</span>
-            </li>
-            <li>
-                <strong class="en">Wax:</strong><strong class="es">Cera:</strong>
-                <span class="en">Premium hand-applied wax for a deep gloss and long-lasting paint protection against the elements.</span>
-                <span class="es">Cera premium aplicada a mano para un brillo profundo y protección duradera de la pintura contra los elementos.</span>
-            </li>
-            <li>
-                <strong class="en">Polish:</strong><strong class="es">Polish:</strong>
-                <span class="en">Professional machine polishing to remove minor scratches, swirl marks, and restore the clear coat's original shine.</span>
-                <span class="es">Polish profesional para eliminar rayones menores, marcas de remolino y restaurar el brillo original del barniz.</span>
-            </li>
-            <li>
-                <strong class="en">Deep Cleaning:</strong><strong class="es">Limpieza Profunda:</strong>
-                <span class="en">Wash seatbelts, seats, ceilings, trunk, and baby car seats. Intensive shampoo extraction and stain removal for all interior fabrics and upholstery.</span>
-                <span class="es">Lavado de cinturones de seguridad, asientos, techos, cajuela y asientos para bebés. Extracción intensiva con champú y eliminación de manchas para todas las telas de tapicería e interior.</span>
-            </li>
-        </ul>
+        <h2 class="en">Services &amp; Pricing</h2>
+        <h2 class="es">Servicios y Precios</h2>
+
+        <!-- Menu image — full screen width -->
+        <div class="menu-img-wrapper">
+            <img src="menu.png" alt="Lavamex menú de precios">
+        </div>
+
+        <!-- Individual services with descriptions -->
+        <h3 class="en">Individual Services</h3>
+        <h3 class="es">Servicios Individuales</h3>
+        <div class="services-grid">
+            <div class="service-item">
+                <div class="svc-name en">Motor Wash</div>
+                <div class="svc-name es">Lavado de Motor</div>
+                <div class="svc-desc en">Careful degreasing and cleaning of the engine bay to remove oil and debris.</div>
+                <div class="svc-desc es">Desengrase y limpieza cuidadosa del compartimiento del motor para eliminar aceite y residuos.</div>
+            </div>
+            <div class="service-item">
+                <div class="svc-name en">Chassis Wash</div>
+                <div class="svc-name es">Lavado de Chasis</div>
+                <div class="svc-desc en">High-pressure undercarriage cleaning to remove heavy dirt, mud, and road grime.</div>
+                <div class="svc-desc es">Limpieza a alta presión del chasis para eliminar tierra, lodo y suciedad acumulada del camino.</div>
+            </div>
+            <div class="service-item">
+                <div class="svc-name en">Headlight Cleaning</div>
+                <div class="svc-name es">Limpieza de Focos</div>
+                <div class="svc-desc en">Restoration and polishing of headlight lenses to improve clarity and brightness.</div>
+                <div class="svc-desc es">Restauración y pulido de los lentes de los faros para mejorar su claridad y brillo.</div>
+            </div>
+            <div class="service-item">
+                <div class="svc-name en">Shoe Shine</div>
+                <div class="svc-name es">Boleada</div>
+                <div class="svc-desc en">Professional cleaning and shine for leather shoes while you wait.</div>
+                <div class="svc-desc es">Limpieza y brillo profesional para zapatos de cuero mientras espera.</div>
+            </div>
+            <div class="service-item">
+                <div class="svc-name en">Trunk Vacuum</div>
+                <div class="svc-name es">Aspirado Cajuela</div>
+                <div class="svc-desc en">Thorough vacuuming of the trunk area to remove dust, dirt, and debris.</div>
+                <div class="svc-desc es">Aspirado completo del área de la cajuela para eliminar polvo, suciedad y residuos.</div>
+            </div>
+            <div class="service-item">
+                <div class="svc-name en">Air Freshener</div>
+                <div class="svc-name es">Aroma</div>
+                <div class="svc-desc en">Fragrance application to leave your vehicle smelling fresh and clean.</div>
+                <div class="svc-desc es">Aplicación de fragancia para dejar su vehículo con un aroma fresco y agradable.</div>
+            </div>
+        </div>
     </section>
 
     <section id="important-info">
